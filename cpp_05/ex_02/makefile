@@ -1,0 +1,26 @@
+NAME = Bureaucrat
+
+CC = c++
+SRC = Bureaucrat.cpp AForm.cpp main.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
+HEADER = Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp
+OBJ_F = $(SRC:%.cpp=%.o)
+RM = rm -rf
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+
+all: $(NAME)
+
+$(NAME) : $(OBJ_F) $(HEADER)
+	$(CC) $(CPPFLAGS) $(OBJ_F) -o $(NAME)
+
+%.o : %.cpp $(HEADER)
+	$(CC) $(CPPFLAGS) -c $< -o $@
+
+clean:
+	$(RM) $(OBJ_F)
+
+fclean: clean
+	$(RM) $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re
