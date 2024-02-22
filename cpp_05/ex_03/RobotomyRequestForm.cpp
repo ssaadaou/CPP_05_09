@@ -6,7 +6,7 @@
 /*   By: ssaadaou <ssaadaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 17:33:25 by ssaadaou          #+#    #+#             */
-/*   Updated: 2024/02/19 18:50:32 by ssaadaou         ###   ########.fr       */
+/*   Updated: 2024/02/21 20:58:04 by ssaadaou         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -22,7 +22,10 @@ RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy) : AFor
 RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &other)
 {
     if (this != &other)
-        this->Target = other.getTarget();
+    {
+        AForm::operator=(other);
+        this->Target = other.Target;
+    }
     return *this;
 }
 

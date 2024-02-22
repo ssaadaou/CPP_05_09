@@ -26,8 +26,6 @@ AForm::AForm(const std::string &name, int gradeToSign, int gradeToExecute)
 AForm::AForm(const AForm &copy)
     : name(copy.name), isSigned(copy.isSigned), gradeToSign(copy.gradeToSign), gradeToExecute(copy.gradeToExecute)
 {
-    // The member variables are already initialized with `copy`'s values.
-    // No further action needed here.
     *this = copy;
 }
 
@@ -54,7 +52,7 @@ void AForm::BeSigned(const Bureaucrat &Bureaucrat)
         this->isSigned = true;
     else
         throw GradeTooLowException();
-} 
+}
 
 const char *AForm::GradeTooLowException::what() const throw()
 {

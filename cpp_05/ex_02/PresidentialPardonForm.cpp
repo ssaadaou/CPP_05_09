@@ -6,7 +6,7 @@
 /*   By: ssaadaou <ssaadaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 18:35:45 by ssaadaou          #+#    #+#             */
-/*   Updated: 2024/02/19 18:40:19 by ssaadaou         ###   ########.fr       */
+/*   Updated: 2024/02/21 20:35:26 by ssaadaou         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -22,7 +22,10 @@ PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &cop
 PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &other)
 {
     if (this != &other)
-        this->Target = other.getTarget();
+    {
+        AForm::operator=(other);
+        this->Target = other.Target;
+    }
     return *this;
 }
 

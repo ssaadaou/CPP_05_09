@@ -6,7 +6,7 @@
 /*   By: ssaadaou <ssaadaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 23:56:48 by ssaadaou          #+#    #+#             */
-/*   Updated: 2024/02/20 18:29:26 by ssaadaou         ###   ########.fr       */
+/*   Updated: 2024/02/20 23:34:36 by ssaadaou         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -55,5 +55,6 @@ class Form
     };
 };
 
+std::ostream &operator<<(std::ostream &out, const Form &form);
 
 #endif

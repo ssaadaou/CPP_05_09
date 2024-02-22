@@ -6,7 +6,7 @@
 /*   By: ssaadaou <ssaadaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 16:18:24 by ssaadaou          #+#    #+#             */
-/*   Updated: 2024/02/19 19:08:39 by ssaadaou         ###   ########.fr       */
+/*   Updated: 2024/02/21 22:39:50 by ssaadaou         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -21,9 +21,9 @@ int main()
     try
     {
         Bureaucrat MaxPower("milo", 1);                // Create a bureaucrat with highest grade
-        ShrubberyCreationForm gardenForm("form_1"); // Create form targeting garden
-        RobotomyRequestForm robotomyForm("form_2");
-        PresidentialPardonForm pardonForm("form_3");
+        ShrubberyCreationForm gardenForm("garden"); // Create form targeting garden
+        RobotomyRequestForm robotomyForm("robotomy");
+        PresidentialPardonForm pardonForm("pardon");
 
         MaxPower.signForm(gardenForm); // MaxPower sign the form
         MaxPower.executeForm(gardenForm);  // Execute the form to create ASCIIart file.

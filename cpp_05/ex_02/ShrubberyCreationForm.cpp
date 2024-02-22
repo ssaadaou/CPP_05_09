@@ -6,7 +6,7 @@
 /*   By: ssaadaou <ssaadaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 23:31:52 by ssaadaou          #+#    #+#             */
-/*   Updated: 2024/02/19 19:10:25 by ssaadaou         ###   ########.fr       */
+/*   Updated: 2024/02/21 20:36:50 by ssaadaou         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -22,7 +22,10 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy) 
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &other)
 {
     if (this != &other)
-        this->Target = other.getTarget();
+    {
+        AForm::operator=(other);
+        this->Target = other.Target;
+    }
     return *this;
 }
 

@@ -6,7 +6,7 @@
 /*   By: ssaadaou <ssaadaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 23:56:48 by ssaadaou          #+#    #+#             */
-/*   Updated: 2024/02/19 15:37:39 by ssaadaou         ###   ########.fr       */
+/*   Updated: 2024/02/22 16:10:47 by ssaadaou         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -33,7 +33,7 @@ public:
     AForm(const std::string &name, int gradeToSign, int gradeToExecute);
     AForm(const AForm &copy);
     AForm &operator=(const AForm &other);
-    ~AForm();
+    virtual ~AForm();
 
     std::string getName() const;
     bool getIsSigned() const;

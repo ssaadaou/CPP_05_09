@@ -6,7 +6,7 @@
 /*   By: ssaadaou <ssaadaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 19:11:33 by ssaadaou          #+#    #+#             */
-/*   Updated: 2024/02/19 19:40:14 by ssaadaou         ###   ########.fr       */
+/*   Updated: 2024/02/21 22:31:22 by ssaadaou         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -16,7 +16,8 @@
 #include "AForm.hpp"
 #include <string>
 
-class Intern {
+class Intern 
+{
 public:
     Intern();
     Intern(const Intern& other);

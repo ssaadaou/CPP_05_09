@@ -6,13 +6,13 @@
 /*   By: ssaadaou <ssaadaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 19:28:49 by ssaadaou          #+#    #+#             */
-/*   Updated: 2024/02/20 18:29:22 by ssaadaou         ###   ########.fr       */
+/*   Updated: 2024/02/21 20:53:33 by ssaadaou         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() {}
+Bureaucrat::Bureaucrat() : name("default"), grade(150) {}
 
 Bureaucrat::Bureaucrat(const std::string &name, int grade) : name(name), grade(grade)
 {
@@ -24,12 +24,13 @@ Bureaucrat::Bureaucrat(const std::string &name, int grade) : name(name), grade(g
 
 Bureaucrat::Bureaucrat(const Bureaucrat &copy) : name(copy.name), grade(copy.grade)
 {
+    *this = copy;
 }
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
 {
     if (this != &other)
-        this->grade = other.getGrade();
+        this->grade = other.grade;
     return *this;
 }
 
@@ -47,16 +48,16 @@ int Bureaucrat::getGrade() const
 
 void Bureaucrat::incrementGrade()
 {
+    grade--;
     if (grade <= 1)
         throw GradeTooHighException();
-    --grade;
 }
 
 void Bureaucrat::decrementGrade()
 {
+    grade++;
     if (grade >= 150)
         throw GradeTooLowException();
-    ++grade;
 }
 
 const char *Bureaucrat::GradeTooLowException::what() const throw()

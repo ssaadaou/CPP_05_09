@@ -6,7 +6,7 @@
 /*   By: ssaadaou <ssaadaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 20:12:59 by ssaadaou          #+#    #+#             */
-/*   Updated: 2024/02/20 18:13:46 by ssaadaou         ###   ########.fr       */
+/*   Updated: 2024/02/21 22:30:41 by ssaadaou         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -30,9 +30,9 @@ int main()
         
         std::cout << "this line shows that everything work perfectly and there is no throw exception. " << std::endl;
     }
-    catch (std::exception &obj)
+    catch (std::exception &e)
     {
-        std::cout << obj.what() << std::endl;
+        std::cout << e.what() << std::endl;
     }
     
     return 0;
