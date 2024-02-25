@@ -6,7 +6,7 @@
 /*   By: ssaadaou <ssaadaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 19:28:49 by ssaadaou          #+#    #+#             */
-/*   Updated: 2024/02/21 20:53:08 by ssaadaou         ###   ########.fr       */
+/*   Updated: 2024/02/24 18:50:25 by ssaadaou         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -34,6 +34,8 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
     return *this;
 }
 
+Bureaucrat::~Bureaucrat() {}
+
 std::string Bureaucrat::getName() const
 {
     return name;
@@ -47,14 +49,14 @@ int Bureaucrat::getGrade() const
 void Bureaucrat::incrementGrade()
 {
     grade--;
-    if (grade <= 1)
+    if (grade < 1)
         throw GradeTooHighException();
 }
 
 void Bureaucrat::decrementGrade()
 {
     grade++;
-    if (grade >= 150)
+    if (grade > 150)
         throw GradeTooLowException();
 }
 
@@ -72,4 +74,18 @@ std::ostream &operator<<(std::ostream &out_stream, const Bureaucrat &bureaucrat)
 {
     out_stream << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
     return out_stream;
+}
+
+void Bureaucrat::signForm(Form &curr)
+{
+    try
+    {
+        curr.beSigned(*this);
+        std::cout << this->getName() << " signed " << curr.getName() << std::endl;
+    }
+    catch (const std::exception &reason)
+    {
+        std::cout << this->getName() << " couldn’t sign "
+            << curr.getName() << " because " << reason.what() << std::endl ;
+    }
 }

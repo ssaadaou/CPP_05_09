@@ -1,4 +1,4 @@
-NAME = Bureaucrat
+NAME = AForm
 
 CC = c++
 SRC = Bureaucrat.cpp AForm.cpp main.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp

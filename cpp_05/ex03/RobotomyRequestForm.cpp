@@ -6,20 +6,19 @@
 /*   By: ssaadaou <ssaadaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 17:33:25 by ssaadaou          #+#    #+#             */
-/*   Updated: 2024/02/21 20:58:04 by ssaadaou         ###   ########.fr       */
+/*   Updated: 2024/02/24 22:37:17 by ssaadaou         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45), Target("default") {}
+RobotomyRequestForm::RobotomyRequestForm() : AForm(Target, 72, 45), Target("default") {}
 
-RobotomyRequestForm::RobotomyRequestForm(std::string Target) : AForm("RobotomyRequestForm", 72, 45), Target(Target) {}
+RobotomyRequestForm::RobotomyRequestForm(std::string Target) : AForm(Target, 72, 45), Target(Target) {}
 
-// copy all the base class data(AForm ) and all specific data of derived class in this case Target
+ 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy) : AForm(copy), Target(copy.Target) {}
-// When copying an object that inherits from another class, use the base class's copy constructor to ensure all base class data is correctly copied.
-RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &other)
+ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &other)
 {
     if (this != &other)
     {

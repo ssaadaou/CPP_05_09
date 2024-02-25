@@ -46,7 +46,7 @@ int AForm::getGradeToSign() const { return (gradeToSign); }
 
 int AForm::getGradeToExecute() const { return (gradeToExecute); }
 
-void AForm::BeSigned(const Bureaucrat &Bureaucrat)
+void AForm::beSigned(const Bureaucrat &Bureaucrat)
 {
     if (Bureaucrat.getGrade() <= this->gradeToSign)
         this->isSigned = true;

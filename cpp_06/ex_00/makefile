@@ -1,7 +1,7 @@
 NAME = program
 
 CC = c++
-SRC = ScalarConverter.cpp main.cpp
+SRC = test.cpp 
 HEADER = ScalarConverter.hpp
 OBJ_F = $(SRC:%.cpp=%.o)
 RM = rm -rf

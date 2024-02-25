@@ -6,27 +6,16 @@
 /*   By: ssaadaou <ssaadaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 04:30:21 by ssaadaou          #+#    #+#             */
-/*   Updated: 2024/02/22 05:39:24 by ssaadaou         ###   ########.fr       */
+/*   Updated: 2024/02/25 00:36:36 by ssaadaou         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
 #ifndef SCALARCONVERTER_HPP
 #define SCALARCONVERTER_HPP
 
-// #include <iostream>
-#include <sstream>
-// #include <string>
-// #include <limits>
-// #include <cstdlib>
-
 #include <iostream>
-#include <string>
-#include <limits> // For std::numeric_limits
-#include <cmath>  // For std::floor and other math functions
-#include <cctype> // For std::isprint
-#include <cstdlib> // For std::strtod
-#include <cerrno>
-#include <typeinfo>
+#include <sstream>
+
 class ScalarConverter
 {
 private:

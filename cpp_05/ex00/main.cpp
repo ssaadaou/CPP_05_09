@@ -5,40 +5,38 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssaadaou <ssaadaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/16 18:43:05 by ssaadaou          #+#    #+#             */
-/*   Updated: 2024/02/20 23:41:33 by ssaadaou         ###   ########.fr       */
+/*   Created: 2024/02/13 20:12:59 by ssaadaou          #+#    #+#             */
+/*   Updated: 2024/02/24 21:56:36 by ssaadaou         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
 
 int main()
 {
     try
     {
-        
-        // creating Bureaucrat
-        Bureaucrat chef_1("XXX", 1);// i should check if the both assignment of che1/2 are good
-        Bureaucrat chef_2 = Bureaucrat("YYY", 60);
-        std::cout << chef_1 << std::endl;
+        Bureaucrat bureaucrat("someone", 1);
+        // bureaucrat.incrementGrade();
+        // // bureaucrat.incrementGrade();
+        // bureaucrat.incrementGrade();
+        // bureaucrat.decrementGrade();
+        // std::cout << bureaucrat << std::endl;
+        std::cout << bureaucrat.getGrade() << std::endl;
+exit(1);
+        Bureaucrat Bureaucrat2("someone2", 150);
+        Bureaucrat2.incrementGrade();
 
-        // creating Form
-        Form file = Form("file1", 2, 2);
-        Form file2 = Form("file2", 3, 150);
+        Bureaucrat bureaucrat3(Bureaucrat2);
+        std::cout << "copy: " << bureaucrat3.getName() << std::endl;
 
-        chef_1.signForm(file);
-        chef_2.signForm(file);
-        std::cout << std::endl;
-        std::cout << "++++++++++++++++++++++++++++++" << std::endl;
-        std::cout << file << std::endl;
-        std::cout << file2;
         
+        std::cout << "this line shows that everything work perfectly and there is no exception thrown. " << std::endl;
     }
-    catch(const std::exception& e)
+    catch (std::exception &e)
     {
         std::cout << e.what() << std::endl;
     }
     
-
+    return 0;
 }

@@ -6,20 +6,19 @@
 /*   By: ssaadaou <ssaadaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 18:35:45 by ssaadaou          #+#    #+#             */
-/*   Updated: 2024/02/21 20:35:26 by ssaadaou         ###   ########.fr       */
+/*   Updated: 2024/02/24 22:37:24 by ssaadaou         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm", 25, 5), Target("default") {}
+PresidentialPardonForm::PresidentialPardonForm() : AForm(Target, 25, 5), Target("default") {}
 
-PresidentialPardonForm::PresidentialPardonForm(std::string Target) : AForm("PresidentialPardonForm", 25, 5), Target(Target) {}
+PresidentialPardonForm::PresidentialPardonForm(std::string Target) : AForm(Target, 25, 5), Target(Target) {}
 
-// copy all the base class data(AForm ) and all specific data of derived class in this case Target
+ 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &copy) : AForm(copy), Target(copy.Target) {}
-// When copying an object that inherits from another class, use the base class's copy constructor to ensure all base class data is correctly copied.
-PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &other)
+ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &other)
 {
     if (this != &other)
     {

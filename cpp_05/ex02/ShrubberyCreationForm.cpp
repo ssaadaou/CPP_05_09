@@ -6,20 +6,20 @@
 /*   By: ssaadaou <ssaadaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 23:31:52 by ssaadaou          #+#    #+#             */
-/*   Updated: 2024/02/21 20:58:18 by ssaadaou         ###   ########.fr       */
+/*   Updated: 2024/02/24 22:27:00 by ssaadaou         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137), Target("default") {}
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm(Target, 145, 137), Target("default") {}
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string Target) : AForm("ShrubberyCreationForm", 145, 137), Target(Target) {}
+ShrubberyCreationForm::ShrubberyCreationForm(std::string Target) : AForm(Target, 145, 137), Target(Target) {}
 
-// copy all the base class data(AForm ) and all specific data of derived class in this case Target
+ 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy) : AForm(copy), Target(copy.Target) {}
-// When copying an object that inherits from another class, use the base class's copy constructor to ensure all base class data is correctly copied.
-ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &other)
+
+ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &other)
 {
     if (this != &other)
     {
@@ -41,9 +41,13 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
         throw GradeTooLowException();
     else
     {
-        // std::string filename = (this->getName() + "_shrubbery").c_str();
-        // std::ofstream file(filename);
-        std::ofstream file((this->getName() + "_shrubbery").c_str());
+        std::string filename = (this->getName() + "_shrubbery").c_str();
+        std::ofstream file(filename);
+        if(!file.is_open())
+        {
+            std::cout << "Error: could not open file " << filename << std::endl;
+            return;
+        }
         file << "    ccee88oo" << std::endl
              << "  C8O8O8Q8PoOb o8oo" << std::endl
              << " dOB69QO8PdUOpugoO9bD" << std::endl
@@ -55,5 +59,6 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
              << "         |||\\/" << std::endl
              << "         |||||" << std::endl
              << "   .....//||||\\...." << std::endl;
+        file.close();
     }
 }

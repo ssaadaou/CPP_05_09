@@ -6,7 +6,7 @@
 /*   By: ssaadaou <ssaadaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 23:56:48 by ssaadaou          #+#    #+#             */
-/*   Updated: 2024/02/19 15:37:39 by ssaadaou         ###   ########.fr       */
+/*   Updated: 2024/02/24 18:49:39 by ssaadaou         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -40,7 +40,7 @@ public:
     int getGradeToSign() const;
     int getGradeToExecute() const;
 
-    void BeSigned(const Bureaucrat &Bureaucrat);
+    void beSigned(const Bureaucrat &Bureaucrat);
 
     class GradeTooHighException : public std::exception
     {

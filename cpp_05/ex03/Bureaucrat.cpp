@@ -6,7 +6,7 @@
 /*   By: ssaadaou <ssaadaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 19:28:49 by ssaadaou          #+#    #+#             */
-/*   Updated: 2024/02/21 20:59:19 by ssaadaou         ###   ########.fr       */
+/*   Updated: 2024/02/24 18:51:40 by ssaadaou         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -47,16 +47,16 @@ int Bureaucrat::getGrade() const
 
 void Bureaucrat::incrementGrade()
 {
-    if (grade <= 1)
+    grade--;
+    if (grade < 1)
         throw GradeTooHighException();
-    --grade;
 }
 
 void Bureaucrat::decrementGrade()
 {
-    if (grade >= 150)
+    grade++;
+    if (grade > 150)
         throw GradeTooLowException();
-    ++grade;
 }
 
 const char *Bureaucrat::GradeTooLowException::what() const throw()
@@ -79,7 +79,7 @@ void Bureaucrat::signForm(AForm &curr)
 {
     try
     {
-        curr.BeSigned(*this);
+        curr.beSigned(*this);
         std::cout << this->getName() << " signed " << curr.getName() << std::endl;
     }
     catch (const std::exception &reason)

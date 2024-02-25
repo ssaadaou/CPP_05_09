@@ -5,35 +5,40 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssaadaou <ssaadaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/13 20:12:59 by ssaadaou          #+#    #+#             */
-/*   Updated: 2024/02/21 22:30:41 by ssaadaou         ###   ########.fr       */
+/*   Created: 2024/02/16 18:43:05 by ssaadaou          #+#    #+#             */
+/*   Updated: 2024/02/24 22:18:50 by ssaadaou         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main()
 {
     try
     {
-        Bureaucrat bureaucrat("someone", 1);
-        bureaucrat.decrementGrade();
-        std::cout << bureaucrat << std::endl;
-
-        Bureaucrat Bureaucrat2("someone2", 150);
-        Bureaucrat2.incrementGrade();
-
-        // bureaucrat = Bureaucrat2;
-        Bureaucrat bureaucrat3(Bureaucrat2);
-        std::cout << "copy: " << bureaucrat3.getName() << std::endl;
-
         
-        std::cout << "this line shows that everything work perfectly and there is no throw exception. " << std::endl;
+        // creating Bureaucrat
+        Bureaucrat chef_1("XXX", 1);// i should check if the both assignment of che1/2 are good
+        Bureaucrat chef_2 = Bureaucrat("YYY", 60);
+        std::cout << chef_1 << std::endl;
+
+        // creating Form
+        Form file = Form("file1", 2, 2);
+        Form file2 = Form("file2", 3, 150);
+
+        chef_1.signForm(file);
+        chef_2.signForm(file2);
+        std::cout << std::endl;
+        std::cout << "++++++++++++++++++++++++++++++" << std::endl;
+        std::cout << file << std::endl;
+        std::cout << file2 << std::endl;
+        
     }
-    catch (std::exception &e)
+    catch(const std::exception& e)
     {
         std::cout << e.what() << std::endl;
     }
     
-    return 0;
+
 }

@@ -6,7 +6,7 @@
 /*   By: ssaadaou <ssaadaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 22:35:27 by ssaadaou          #+#    #+#             */
-/*   Updated: 2024/02/22 16:08:13 by ssaadaou         ###   ########.fr       */
+/*   Updated: 2024/02/24 22:49:31 by ssaadaou         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -22,15 +22,25 @@ int main()
     {
         Bureaucrat X("X", 1);
         Intern intern;
-        AForm* form;
+        AForm* form = NULL;
+        std::cout << std::endl;
+        
         form = intern.makeForm("shrubbery creation", "garden");
-        X.signForm(*form);
-        X.executeForm(*form);
-        delete form;
+        if (form)
+        {
+            X.signForm(*form);
+            X.executeForm(*form);
+            delete form;
+        }
+        std::cout << std::endl;
         form = intern.makeForm("robotomy request", "robotomy");
-        X.signForm(*form);
-        X.executeForm(*form);
-        delete form;
+        if (form)
+        {
+            X.signForm(*form);
+            X.executeForm(*form);
+            std::cout << std::endl;
+            delete form;
+        }
         
     }
     catch(const std::exception& e)
