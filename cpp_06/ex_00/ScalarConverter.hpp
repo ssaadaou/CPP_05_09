@@ -6,7 +6,7 @@
 /*   By: ssaadaou <ssaadaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 04:30:21 by ssaadaou          #+#    #+#             */
-/*   Updated: 2024/02/25 00:36:36 by ssaadaou         ###   ########.fr       */
+/*   Updated: 2024/02/25 04:24:04 by ssaadaou         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -15,6 +15,8 @@
 
 #include <iostream>
 #include <sstream>
+#include <limits>
+#include <iomanip>
 
 class ScalarConverter
 {
@@ -27,7 +29,7 @@ public:
     ScalarConverter &operator=(const ScalarConverter &other);
     ~ScalarConverter();
 
-    static void convert(const std::string &literal);
+    static void convert(std::string &literal);
 };
 
 #endif

@@ -1,8 +1,8 @@
 NAME = program
 
 CC = c++
-SRC = ScalarConverter.cpp 
-HEADER = ScalarConverter.hpp
+SRC = Serializer.cpp 
+HEADER = Serializer.hpp
 OBJ_F = $(SRC:%.cpp=%.o)
 RM = rm -rf
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98

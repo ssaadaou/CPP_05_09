@@ -6,7 +6,7 @@
 /*   By: ssaadaou <ssaadaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 23:31:52 by ssaadaou          #+#    #+#             */
-/*   Updated: 2024/02/24 22:27:00 by ssaadaou         ###   ########.fr       */
+/*   Updated: 2024/02/25 15:29:27 by ssaadaou         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -41,8 +41,9 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
         throw GradeTooLowException();
     else
     {
-        std::string filename = (this->getName() + "_shrubbery").c_str();
-        std::ofstream file(filename);
+        std::string filename = (this->getTarget() + "_shrubbery");
+        std::cout << "name: " << filename << "          target: " << this->getTarget() << std::endl;
+        std::ofstream file(filename.c_str());
         if(!file.is_open())
         {
             std::cout << "Error: could not open file " << filename << std::endl;
