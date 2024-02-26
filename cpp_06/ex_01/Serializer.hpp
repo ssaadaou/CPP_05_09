@@ -6,7 +6,7 @@
 /*   By: ssaadaou <ssaadaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 06:14:07 by ssaadaou          #+#    #+#             */
-/*   Updated: 2024/02/22 06:19:31 by ssaadaou         ###   ########.fr       */
+/*   Updated: 2024/02/25 22:30:00 by ssaadaou         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -18,8 +18,7 @@
 typedef struct s_data
 {
     std::string name;
-    int n;
-    std::string s2;
+    int i;
 } Data;
 
 class Serializer
@@ -30,12 +29,11 @@ private:
 
 public:
     Serializer(Serializer &obj);
-    // canonical form
     Serializer &operator=(Serializer &obj);
     ~Serializer();
 
     static uintptr_t serialize(Data *ptr);
-    static Data *deserialize(uintptr_t raw);
+    static Data *deserialize(uintptr_t dataptr);
 };
 
 #endif

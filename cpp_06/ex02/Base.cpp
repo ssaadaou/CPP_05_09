@@ -5,83 +5,50 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssaadaou <ssaadaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/25 04:52:32 by ssaadaou          #+#    #+#             */
-/*   Updated: 2024/02/25 05:07:03 by ssaadaou         ###   ########.fr       */
+/*   Created: 2024/02/26 01:22:32 by ssaadaou          #+#    #+#             */
+/*   Updated: 2024/02/26 02:38:45 by ssaadaou         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
 #include "Base.hpp"
 
-Base::~Base() {}
-
-Base* generate(void)
+Base::~Base()
 {
-	int random = std::rand() % 3;
-
-	switch (random)
-	{
-        case 0:
-            return new A;
-        case 1:
-            return new B;
-        case 2:
-            return new C;
-        default:
-            return new A;
-	}
 }
 
 void identify(Base* p)
 {
-	if (dynamic_cast<A*>(p))
-		std::cout << "Class type A." << std::endl;
-	else if (dynamic_cast<B*>(p))
-		std::cout << "Class type B." << std::endl;
-	else if (dynamic_cast<C*>(p))
-		std::cout << "Class type C." << std::endl;
-	else
-		std::cout << "unknown Class." << std::endl;
+    if (dynamic_cast<A*>(p))
+        std::cout << "A" << std::endl;
+    else if (dynamic_cast<B*>(p))
+        std::cout << "B" << std::endl;
+    else if (dynamic_cast<C*>(p))
+        std::cout << "C" << std::endl;
+    else
+        std::cout << "unknown Class" << std::endl;
 }
 
-void identify(Base& p)
-{
-    A a;
-    B b;
-    C c;
-	try
-	{
-		a = dynamic_cast<A&>(p);
-		std::cout << "Class type A." << std::endl;
-		(void)a;
-	}
-	catch(const std::exception& e)
-    {
-		try
-		{
-			b = dynamic_cast<B&>(p);
-			std::cout << "Class type B." << std::endl;
-		}
-		catch(const std::exception& e)
-        {
-			try
-			{
-				c = dynamic_cast<C&>(p);
-				std::cout << "Class type C." << std::endl;
-			}
-			catch(const std::exception& e)
-            {
-				std::cout << "unknown Class." << std::endl;
-			}
-		}
-		
-	}
-}
+// void identify(Base &p)
+// {
+    
+// }
 
 int main()
 {
-    Base* obj = generate();
-    identify(obj);
-    identify(*obj);
-    delete obj;
-    return 0;
+    srand(time(NULL));
+    Base *base = NULL;
+    int i = rand() % 3;
+
+    if (i == 0)
+        base = new A;
+    else if (i == 1)
+        base = new B;
+    else
+        base = new C;
+        
+    identify(base);
+    // identify(*base);
+    delete base;
+    // return 0;
 }
+

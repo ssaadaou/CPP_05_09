@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssaadaou <ssaadaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/25 04:52:40 by ssaadaou          #+#    #+#             */
-/*   Updated: 2024/02/25 05:04:45 by ssaadaou         ###   ########.fr       */
+/*   Created: 2024/02/26 01:23:03 by ssaadaou          #+#    #+#             */
+/*   Updated: 2024/02/26 01:23:37 by ssaadaou         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -23,13 +23,10 @@ class Base
 		virtual ~Base();
 };
 
-class A : public Base 
-{};
+class A : public Base {};
 
-class B : public Base
-{};
+class B : public Base{};
 
-class C : public Base
-{};
+class C : public Base {};
 
 #endif
