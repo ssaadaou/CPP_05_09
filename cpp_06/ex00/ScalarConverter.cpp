@@ -6,7 +6,7 @@
 /*   By: ssaadaou <ssaadaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 04:30:18 by ssaadaou          #+#    #+#             */
-/*   Updated: 2024/02/25 22:10:06 by ssaadaou         ###   ########.fr       */
+/*   Updated: 2024/02/27 02:02:07 by ssaadaou         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -27,14 +27,11 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &other)
     return *this;
 }
 
-ScalarConverter::~ScalarConverter()
-{
-}
+ScalarConverter::~ScalarConverter() {}
 
 void ScalarConverter::convert(std::string &literal)
 {
-    if ((literal.length() == 1 && !isdigit(literal[0])) ||
-        (literal.length() == 3 && literal[0] == '\'' && literal[2] == '\'' && !isdigit(literal[1])))
+    if ((literal.length() == 1 && !isdigit(literal[0])))
     {
         char c = literal[0];
         if (std::isprint(c))
@@ -58,8 +55,7 @@ void ScalarConverter::convert(std::string &literal)
         return;
     }
 
-    else if (literal == "+inf" || literal == "inf" || literal == "+inff" ||
-        literal == "-inf" || literal == "-inff")
+    else if (literal == "+inf" || literal == "+inff" || literal == "-inf" || literal == "-inff")
     {
         std::cout << "char: impossible" << std::endl;
         std::cout << "int: impossible" << std::endl;
@@ -67,15 +63,10 @@ void ScalarConverter::convert(std::string &literal)
         std::cout << "double: " << ((literal[0] == '-') ? "-inf" : "+inf") << std::endl;
         return;
     }
-    
-    else if((literal[literal.length() - 1] == 'f' && literal.find('.')) && (literal.length() > 1) )
-    {
+    else if((literal[literal.length() - 1] == 'f' && literal.find('.')) && (literal.length() > 1))
         literal = literal.substr(0, literal.length() - 1);
-        std::cout << "literaaal: " << literal << std::endl;
-        
-    }
     
-    std::stringstream ss(literal.c_str());
+    std::stringstream ss(literal);
     long double value;
     if (!(ss >> value) || !ss.eof())
     {
@@ -90,12 +81,14 @@ void ScalarConverter::convert(std::string &literal)
         else
             std::cout << "char: Non displayable" << std::endl;
     }
-    if(value <= std::numeric_limits<int>::min() || value >= std::numeric_limits<int>::max() )
+
+    if(value <= std::numeric_limits<int>::min() || value >= std::numeric_limits<int>::max())
         std::cout << "int: Out of range" << std::endl;
     else
         std::cout << "int: " << static_cast<int>(value) << std::endl;
 
-    std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(value)  << 'f' << std::endl;
+    std::cout << "float: " << std::fixed << std::setprecision(1);
+    std::cout << static_cast<float>(value)  << 'f' << std::endl;
     std::cout << "double: " << static_cast<double>(value) << std::endl;
     
 }
@@ -109,5 +102,5 @@ int main(int ac, char **av)
     }
     std::string literal = av[1];
     ScalarConverter::convert(literal);
-    return 0;
+    return (0);
 }

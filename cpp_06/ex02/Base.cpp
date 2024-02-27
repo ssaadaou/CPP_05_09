@@ -6,7 +6,7 @@
 /*   By: ssaadaou <ssaadaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 01:22:32 by ssaadaou          #+#    #+#             */
-/*   Updated: 2024/02/26 15:00:12 by ssaadaou         ###   ########.fr       */
+/*   Updated: 2024/02/27 03:25:30 by ssaadaou         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -37,27 +37,23 @@ void identify(Base& p)
     }
     catch (const std::exception& e)
     {
-        std::cout << "Unknown class" << std::endl;
-    }
-
-    try
-    {
-        dynamic_cast<B&>(p);
-        std::cout << "B" << std::endl;
-    }
-    catch (const std::exception& e)
-    {
-        std::cout << "Unknown class" << std::endl;
-    }
-
-    try
-    {
-        dynamic_cast<C&>(p);
-        std::cout << "C" << std::endl;
-    }
-    catch (const std::exception& e)
-    {
-        std::cout << "Unknown class" << std::endl;
+        try
+        {
+            dynamic_cast<B&>(p);
+            std::cout << "B" << std::endl;
+        }
+        catch (const std::exception& e)
+        {
+            try
+            {
+                dynamic_cast<C&>(p);
+                std::cout << "C" << std::endl;
+            }
+            catch (const std::exception& e)
+            {
+                std::cout << "Unknown class" << std::endl;
+            }
+        }
     }
 }
 

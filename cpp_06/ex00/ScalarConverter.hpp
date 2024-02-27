@@ -6,7 +6,7 @@
 /*   By: ssaadaou <ssaadaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 04:30:21 by ssaadaou          #+#    #+#             */
-/*   Updated: 2024/02/25 04:24:04 by ssaadaou         ###   ########.fr       */
+/*   Updated: 2024/02/26 22:29:11 by ssaadaou         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -21,10 +21,9 @@
 class ScalarConverter
 {
 private:
-    ScalarConverter(); //prevent instanciation
+    ScalarConverter();
 
 public:
-    // ScalarConverter();
     ScalarConverter(const ScalarConverter &copy);
     ScalarConverter &operator=(const ScalarConverter &other);
     ~ScalarConverter();
