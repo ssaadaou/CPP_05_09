@@ -1,33 +1,42 @@
 /******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Base.hpp                                           :+:      :+:    :+:   */
+/*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssaadaou <ssaadaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/26 01:23:03 by ssaadaou          #+#    #+#             */
-/*   Updated: 2024/02/27 04:35:42 by ssaadaou         ###   ########.fr       */
+/*   Created: 2024/02/27 14:48:50 by ssaadaou          #+#    #+#             */
+/*   Updated: 2024/02/27 16:42:40 by ssaadaou         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
-#ifndef BASE_HPP
-#define BASE_HPP
+#ifndef ARRAY_HPP
+#define ARRAY_HPP
 
 #include <iostream>
-#include <ctime>
-#include <exception>
-#include <cstdlib>
 
-class Base
+template <typename T>
+
+class Array
 {
-	public: 
-		virtual ~Base();
-};
+private:
+    T *array;
+    unsigned int _size;
 
-class A : public Base {};
+public:
+    // Constructors
+    Array() ;
+    Array(unsigned int n) ;
+    
+    // copy constructor
+    Array(const Array &other);
+    
+   Array &operator=(const Array &other);
+   // subscript operator
+    T& operator[](unsigned int i);
+    unsigned int size() const { return _size;};
+   ~Array();
 
-class B : public Base{};
-
-class C : public Base {};
+}
 
 #endif
