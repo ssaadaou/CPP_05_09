@@ -1,39 +1,20 @@
 /******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Array.hpp                                          :+:      :+:    :+:   */
+/*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssaadaou <ssaadaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/27 14:48:50 by ssaadaou          #+#    #+#             */
-/*   Updated: 2024/02/27 20:54:02 by ssaadaou         ###   ########.fr       */
+/*   Created: 2024/02/27 20:02:01 by ssaadaou          #+#    #+#             */
+/*   Updated: 2024/02/27 20:09:04 by ssaadaou         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
-#ifndef ARRAY_HPP
-#define ARRAY_HPP
+#ifndef EASYFIND_HPP
+#define EASYFIND_HPP
 
+#include <algorithm>
 #include <iostream>
 
-template <typename T>
 
-class Array
-{
-private:
-    T *array;
-    unsigned int _size;
-
-public:
-    Array() ;
-    Array(unsigned int n) ;
-    
-    Array(const Array &other);
-    Array &operator=(const Array &other);
-    T& operator[](unsigned int i);
-    unsigned int size() const { return _size;};
-    
-    ~Array();
-
-};
-
-#endif
+// template <typename T>

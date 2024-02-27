@@ -6,7 +6,7 @@
 /*   By: ssaadaou <ssaadaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 15:17:45 by ssaadaou          #+#    #+#             */
-/*   Updated: 2024/02/27 16:42:53 by ssaadaou         ###   ########.fr       */
+/*   Updated: 2024/02/27 21:10:56 by ssaadaou         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -16,7 +16,7 @@ template <typename T>
 Array<T>::Array() : array(NULL), _size(0) {}
 
 template <typename T>
-Array<T>::Array(unsigned int n) :_size(n)
+Array<T>::Array(unsigned int n) : _size(n)
 {
     array = new T[n];
     for (unsigned int i = 0; i < n; i++)
@@ -46,12 +46,6 @@ Array<T>& Array<T>::operator=(const Array &other)
     }
     return *this;
 }
-// destructor
-template <typename T>
-Array<T>::~Array()
-{
-    delete[] array;
-}
 
 //subscript operator
 template <typename T>
@@ -70,14 +64,28 @@ Array<T>::~Array()
 
 int main()
 {
-   
+    try
+    {
+        //test string
+        Array<std::string> a(2);
+        a[0] = "hello";
+        a[1] = "world";
+        for (unsigned int i = 0; i < a.size(); i++)
+            std::cout << a[i] << std::endl;
 
-    Array<int> a(5);
-    Array<int> b(5);
-    Array<int> c(5);
-
-    a = b;
-    c = a;
-
+        //test int
+        Array<int> b(5);
+        for(unsigned i = 0; i < b.size() ; i++)
+        {
+            b[i] = i;
+            std::cout << b[i] << std::endl;            
+        }
+        std::cout << "a[-5] = " << a[-5] << std::endl;
+        
+    }
+    catch(const std::exception& e)
+    {
+        std::cout << e.what() << std::endl;
+    }
     return 0;
 }
