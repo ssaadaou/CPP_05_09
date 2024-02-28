@@ -1,8 +1,8 @@
 NAME = program
 
 CC = c++
-SRC = Serializer.cpp 
-HEADER = Serializer.hpp
+SRC = main.cpp 
+HEADER = easyfind.hpp
 OBJ_F = $(SRC:%.cpp=%.o)
 RM = rm -rf
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
