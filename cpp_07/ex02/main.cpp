@@ -6,7 +6,7 @@
 /*   By: ssaadaou <ssaadaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 15:17:45 by ssaadaou          #+#    #+#             */
-/*   Updated: 2024/02/27 21:10:56 by ssaadaou         ###   ########.fr       */
+/*   Updated: 2024/02/28 20:32:52 by ssaadaou         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -77,9 +77,16 @@ int main()
         Array<int> b(5);
         for(unsigned i = 0; i < b.size() ; i++)
         {
-            b[i] = i;
+            b[i] = i + 10;
             std::cout << b[i] << std::endl;            
         }
+        // test copy constructor
+        Array <int> c(b);
+        for(unsigned i = 0; i < c.size() ; i++)
+        {
+            std::cout << c[i] << std::endl;            
+        }
+
         std::cout << "a[-5] = " << a[-5] << std::endl;
         
     }

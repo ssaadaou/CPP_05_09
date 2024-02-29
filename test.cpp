@@ -1,32 +1,33 @@
 /******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iter.hpp                                           :+:      :+:    :+:   */
+/*   test.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssaadaou <ssaadaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/26 15:28:35 by ssaadaou          #+#    #+#             */
-/*   Updated: 2024/02/28 19:18:14 by ssaadaou         ###   ########.fr       */
+/*   Created: 2024/02/29 00:39:33 by ssaadaou          #+#    #+#             */
+/*   Updated: 2024/02/29 02:52:54 by ssaadaou         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
-#ifndef ITER_HPP
-#define ITER_HPP
-
 #include <iostream>
 
-template <typename T>
-void iter(T *array, int length, void (*function)(T &))
+#include <vector>
+
+int main()
 {
-    if (!array || !function)
-        return;
-    if(length <= 0)
-    {
-        std::cout << "Not a valid length" << std::endl;
-        return ;
-    }
-    for (int i = 0; i < length; i++)
-        function(array[i]);
+    std::vector<int> v ;
+    v.push_back(1);
+    v.push_back(2);
+    v.push_back(3);
+    v.push_back(4);
+    // std::vector<int>::iterator it;
+    // it = v.end() - 1 ;
+    // std::cout << *it << std::endl;
+    // std::cout << v.back() << std::endl;
+    
+    std::vector<int>::iterator it2;
+    it2 = std::find(v.begin(), v.end(), 3);
+    std::cout << *it2+1 << std::endl;
 }
 
-#endif

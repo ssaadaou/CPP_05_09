@@ -6,7 +6,7 @@
 /*   By: ssaadaou <ssaadaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 20:02:31 by ssaadaou          #+#    #+#             */
-/*   Updated: 2024/02/28 14:06:59 by ssaadaou         ###   ########.fr       */
+/*   Updated: 2024/02/29 02:43:47 by ssaadaou         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -17,7 +17,7 @@
 
 template <typename T>
 
-void	easyfind(T &container, int value)
+void	easyfind(T &container, int value) // i guess it should be a T value????
 {
     typename T::iterator it;
 

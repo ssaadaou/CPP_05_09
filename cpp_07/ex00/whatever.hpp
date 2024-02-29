@@ -6,7 +6,7 @@
 /*   By: ssaadaou <ssaadaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 15:21:43 by ssaadaou          #+#    #+#             */
-/*   Updated: 2024/02/26 15:25:43 by ssaadaou         ###   ########.fr       */
+/*   Updated: 2024/02/28 17:11:12 by ssaadaou         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -18,7 +18,8 @@
 template <typename Type>
 void swap(Type &a, Type &b)
 {
-    Type tmp = a;
+    Type tmp;
+    tmp = a;
     a = b;
     b = tmp;
 }

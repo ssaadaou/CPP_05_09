@@ -1,8 +1,8 @@
 NAME = program
 
-CC = c++
-SRC = main.cpp 
-HEADER = whatever.hpp
+CC = c++ 
+SRC = test.cpp
+# HEADER = Array.hpp 
 OBJ_F = $(SRC:%.cpp=%.o)
 RM = rm -rf
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
