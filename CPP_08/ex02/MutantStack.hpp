@@ -6,7 +6,7 @@
 /*   By: ssaadaou <ssaadaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 15:09:23 by ssaadaou          #+#    #+#             */
-/*   Updated: 2024/02/28 15:29:20 by ssaadaou         ###   ########.fr       */
+/*   Updated: 2024/03/01 18:05:26 by ssaadaou         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -16,38 +16,38 @@
 #include <stack>
 #include <iostream>
 
-template <class T>
+
+template <typename T>
 class MutantStack : public std::stack<T>
 {
 public:
-    MutantStack() : std::stack<T>()
+    MutantStack()
     {
     }
 
-    MutantStack(const MutantStack &obj) : std::stack<T>(obj)
+    MutantStack(const MutantStack &obj)
     {
-        // *this = obj;
+        *this = obj;
     }
 
     MutantStack &operator=(const MutantStack &obj)
     {
         if (this != &obj)
-            std::stack<T>::operator=(obj);
+            this->c = obj.c;
         return *this;
     }
 
     ~MutantStack(){};
 
-    typedef typename std::stack<T>::container_type::iterator iterator;
+    typedef typename std::deque<T>::iterator iterator;
     iterator begin()
     {
-        return std::stack<T>::c.begin();
-        // return this->c.begin();
+        return this->c.begin();
     }
 
     iterator end()
     {
-        return std::stack<T>::c.end();
+        return this->c.end();
     }
 };
 

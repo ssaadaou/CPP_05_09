@@ -6,7 +6,7 @@
 /*   By: ssaadaou <ssaadaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 20:02:31 by ssaadaou          #+#    #+#             */
-/*   Updated: 2024/02/29 02:43:47 by ssaadaou         ###   ########.fr       */
+/*   Updated: 2024/03/01 15:11:21 by ssaadaou         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -15,9 +15,18 @@
 #include <vector>
 #include <algorithm>
 
+class NotFoundException : public std::exception
+{
+public:
+    const char *what() const throw()
+    {
+        return "Value not found in container";
+    }
+};
+
 template <typename T>
 
-void	easyfind(T &container, int value) // i guess it should be a T value????
+void easyfind(T &container, int value)
 {
     typename T::iterator it;
 
@@ -30,16 +39,19 @@ void	easyfind(T &container, int value) // i guess it should be a T value????
 
 int main()
 {
-    //vector
-    // std::vector<int> v = {1,4,3,5,6,7,8,9,10};
+    std::vector<int> vec;
+    vec.push_back(10);
+    vec.push_back(20);
+    vec.push_back(30);
+    vec.push_back(40);
 
-    std::vector<int> v(100);
-    for (int i = 0; i < 100; i++)
-        v[i] = 0;
-    
-    
-    easyfind(v, 0);
-    
-    // easyfind(arr, 2);
-    // easyfind(arr, 7);
+    try
+    {
+        easyfind(vec, 30);
+        easyfind(vec, 5);
+    }
+    catch (const std::exception &e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
 }
