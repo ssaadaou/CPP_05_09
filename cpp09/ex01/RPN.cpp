@@ -6,7 +6,7 @@
 /*   By: ssaadaou <ssaadaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 15:10:03 by ssaadaou          #+#    #+#             */
-/*   Updated: 2024/03/02 19:48:24 by ssaadaou         ###   ########.fr       */
+/*   Updated: 2024/03/02 23:22:41 by ssaadaou         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -58,26 +58,52 @@ bool RPN::isOperator(std::string token)
     return false;
 }
 
+bool RPN::isNumber(std::string token)
+{
+    std::stringstream ss(token);
+
+    int num;
+    ss >> num;
+    if (ss.fail() || !ss.eof())
+        return false;
+    return true;
+}
+
+bool check_numbers(std::string input)
+{
+    std::stringstream ss(input);
+    double mynum;
+    ss >> mynum;
+
+    if (ss.fail() || !ss.eof())
+        return false;
+    if (mynum >= 10 || mynum < INT_MIN)
+        return false;
+    return true;
+}
+
 void RPN::excecute(std::string input)
 {
     int num = 0;
     std::istringstream iss(input);
     std::string token;
-    std::istringstream tokStream(input);
     
     if (!checkError(input))
         return;
-        
-    while (getline(iss, token, ' '))
+    int i = 0;
+    while (iss >> token)
     {
-        if (isdigit(token[0]))
+        i++;
+        if(isNumber(token))
         {
-            tokStream >> num;
-            if (num < 0 || num > 9)
+            if (check_numbers(token) == false)
             {
-                std::cerr << "Error: invalid number => " << token << std::endl;
+                std::cerr << "Error: invalid number." << std::endl;
                 return;
             }
+            std::stringstream ss(token);
+            ss >> num;
+            
             _stack.push(num);
         }
         else if(isOperator(token))
@@ -117,6 +143,11 @@ void RPN::excecute(std::string input)
             }
             
         }
+    }
+    if(i == 1)
+    {
+        std::cerr << "Error: not enough operands." << std::endl;
+        return;
     }
     if (_stack.size() != 1)
         std::cerr << "Error: invalid RPN expression." << std::endl;

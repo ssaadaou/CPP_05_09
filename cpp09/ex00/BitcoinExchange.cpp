@@ -6,7 +6,7 @@
 /*   By: ssaadaou <ssaadaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 17:04:24 by ssaadaou          #+#    #+#             */
-/*   Updated: 2024/03/02 18:15:38 by ssaadaou         ###   ########.fr       */
+/*   Updated: 2024/03/02 23:33:41 by ssaadaou         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -44,8 +44,7 @@ void BitcoinExchange::fillMap()
         
     }
     cvs.close();
-    ///
-    
+
 }
 
 bool BitcoinExchange::Errorfile(std::ifstream &input, std::string line)
@@ -76,7 +75,7 @@ bool BitcoinExchange::checkYear(std::string year)
         std::cerr << "Error: Invalid year format." << std::endl;
         return false;
     }
-    if (atoi(year.c_str()) < 2009 || atoi(year.c_str()) > 2023)
+    if (atoi(year.c_str()) < 2008)
     {
         std::cerr << "Error: Year out of range" << std::endl;
         return false;
@@ -103,7 +102,7 @@ bool BitcoinExchange::checkMonthDay(std::string month, std::string day, std::str
     }
     if (m < 1 || m > 12 || d < 1 || d > 31)
     {
-        std::cerr << "Error: bad input => " << year << "-" << month << "-" << day << std::endl;
+        std::cerr << "Error: invalid date => " << year << "-" << month << "-" << day << std::endl;
 
         return false;
     }
@@ -169,7 +168,6 @@ bool BitcoinExchange::checkPrice(double price)
 
 float BitcoinExchange::calculPriceForDate(const std::string &date, float price)
 {
-    // Attempt to find the exact date
     std::map<std::string, float>::iterator it = ExchangeMap.find(date);
     if (it != ExchangeMap.end())
     {

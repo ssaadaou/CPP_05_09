@@ -6,7 +6,7 @@
 /*   By: ssaadaou <ssaadaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 15:11:16 by ssaadaou          #+#    #+#             */
-/*   Updated: 2024/03/02 19:08:52 by ssaadaou         ###   ########.fr       */
+/*   Updated: 2024/03/02 23:07:42 by ssaadaou         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -32,6 +32,10 @@ public:
     void excecute(std::string input);
     bool checkError(std::string input);
     bool isOperator(std::string token);
+
+    bool isNumber(std::string token);
 };
+
+
 
 #endif
