@@ -6,7 +6,7 @@
 /*   By: ssaadaou <ssaadaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 15:11:16 by ssaadaou          #+#    #+#             */
-/*   Updated: 2024/03/02 23:07:42 by ssaadaou         ###   ########.fr       */
+/*   Updated: 2024/03/02 20:01:32 by ssaadaou         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -17,6 +17,7 @@
 #include <stack>
 #include <sstream>
 #include <string>
+#include <climits>
 
 
 class RPN

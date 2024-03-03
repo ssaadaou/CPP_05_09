@@ -6,7 +6,7 @@
 /*   By: ssaadaou <ssaadaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 15:10:03 by ssaadaou          #+#    #+#             */
-/*   Updated: 2024/03/02 23:22:41 by ssaadaou         ###   ########.fr       */
+/*   Updated: 2024/03/02 19:59:30 by ssaadaou         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -133,15 +133,7 @@ void RPN::excecute(std::string input)
                     return;
                 }
                 _stack.push(b / a);
-            }
-            // iterate through the stack
-            std::stack<int> tmp = _stack;
-            while (!tmp.empty())
-            {
-                std::cout << "-----" << tmp.top() << " ";
-                tmp.pop();
-            }
-            
+            }            
         }
     }
     if(i == 1)
