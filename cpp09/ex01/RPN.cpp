@@ -6,7 +6,7 @@
 /*   By: ssaadaou <ssaadaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 15:10:03 by ssaadaou          #+#    #+#             */
-/*   Updated: 2024/03/02 19:59:30 by ssaadaou         ###   ########.fr       */
+/*   Updated: 2024/03/04 13:04:05 by ssaadaou         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -117,8 +117,7 @@ void RPN::excecute(std::string input)
             _stack.pop();
             int b = _stack.top();
             _stack.pop();
-            std::cout << "a: " << a << " b: " << b << std::endl;
-
+            
             if (token == "+")
                 _stack.push(b + a);
             else if (token == "-")

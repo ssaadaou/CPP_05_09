@@ -6,7 +6,7 @@
 /*   By: ssaadaou <ssaadaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 17:04:24 by ssaadaou          #+#    #+#             */
-/*   Updated: 2024/03/03 22:33:29 by ssaadaou         ###   ########.fr       */
+/*   Updated: 2024/03/04 12:53:56 by ssaadaou         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -152,7 +152,6 @@ bool BitcoinExchange::checkDate(std::string date)
 
 bool BitcoinExchange::checkPrice(double price)
 {
-    // std::cout << "price HEERRREEEE!!!: " << price << std::endl;
     if (price < 0)
     {
         std::cerr << "Error: not a positive number." << std::endl;

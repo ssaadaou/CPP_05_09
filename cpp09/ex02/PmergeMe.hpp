@@ -6,7 +6,7 @@
 /*   By: ssaadaou <ssaadaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 23:40:14 by ssaadaou          #+#    #+#             */
-/*   Updated: 2024/03/04 00:32:23 by ssaadaou         ###   ########.fr       */
+/*   Updated: 2024/03/04 14:42:22 by ssaadaou         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -20,7 +20,7 @@
 #include <climits>
 #include <sstream>
 #include <stdexcept>
-#include <stdio.h>
+#include <ctime>
 
 
 class PmergeMe
@@ -29,8 +29,10 @@ private:
     std::vector<int> vc;
     std::deque<int> dq;
     
-    std::vector<int> chain;
-    std::vector<int> pend;
+    std::vector<int> chainV;
+    std::vector<int> pendV;
+    std::deque<int> chainD;
+    std::deque<int> pendD;
 
     std::vector<int> combinaisonIdx;
 
@@ -43,26 +45,23 @@ public:
     PmergeMe(const PmergeMe &obj);
     PmergeMe &operator=(const PmergeMe &obj);
     void vectorPair(std::vector<int> &vc);
-    // void dequePair(std::deque<int> &dq);
-    void generate_combination();
-    
+    void dequePair(std::deque<int> &dq);
+    void generate_combination();  
 
+    void largeElements(std::deque<std::pair<int, int> > &str);
+    void largeElements(std::vector<std::pair<int, int> > &str);
+    bool checkDuplicate(std::deque<int> container);
+    bool checkDuplicate(std::vector<int> container);
+    
     template <typename T>
-    void largeElements(T &str)
+    void displayData(const T& data,const std::string& msg)
     {
-        for (size_t i = 0; i < str.size(); i++)
-        {
-            if (chain.empty())
-            {
-                chain.push_back(str[i].second);
-                chain.push_back(str[i].first);
-            }
-            else
-                chain.push_back(str[i].first);
-            pend.push_back(str[i].second); 
-        }    
-        
-    }
+        std::cout << msg << ": ";
+        for(size_t i = 0; i < data.size(); i++)
+		    std::cout << data[i] << " ";
+	    std::cout << std::endl;
+    } 
+    
 };
 
 #endif
