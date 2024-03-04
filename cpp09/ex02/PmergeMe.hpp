@@ -6,7 +6,7 @@
 /*   By: ssaadaou <ssaadaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 23:40:14 by ssaadaou          #+#    #+#             */
-/*   Updated: 2024/03/03 05:20:53 by ssaadaou         ###   ########.fr       */
+/*   Updated: 2024/03/04 00:32:23 by ssaadaou         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -28,6 +28,13 @@ class PmergeMe
 private:
     std::vector<int> vc;
     std::deque<int> dq;
+    
+    std::vector<int> chain;
+    std::vector<int> pend;
+
+    std::vector<int> combinaisonIdx;
+
+    int holder;
 
 
 public:
@@ -36,17 +43,13 @@ public:
     PmergeMe(const PmergeMe &obj);
     PmergeMe &operator=(const PmergeMe &obj);
     void vectorPair(std::vector<int> &vc);
-    void dequePair(std::deque<int> &dq);
-    void sortPair(std::vector<std::pair<int, int> > &pairs);
-    void recursiveSortLarge(std::vector<int> &chain, int start, int end);
-    void merge(std::vector<int>& elements, int start, int mid, int end);
-    void insertSmallerElements(std::vector<int>& sortedLarger, const std::vector<int>& smaller);
+    // void dequePair(std::deque<int> &dq);
+    void generate_combination();
     
 
     template <typename T>
-    std::vector<int> largeElements(T &str)
+    void largeElements(T &str)
     {
-        std::vector<int> chain;
         for (size_t i = 0; i < str.size(); i++)
         {
             if (chain.empty())
@@ -55,9 +58,9 @@ public:
                 chain.push_back(str[i].first);
             }
             else
-                chain.push_back(str[i].first);  
+                chain.push_back(str[i].first);
+            pend.push_back(str[i].second); 
         }    
-        return chain;
         
     }
 };

@@ -74,6 +74,7 @@
     "stack": "cpp",
     "numbers": "cpp",
     "list": "cpp",
-    "map": "cpp"
+    "map": "cpp",
+    "__tree": "cpp"
   }
 }
